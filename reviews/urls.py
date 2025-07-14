@@ -1,9 +1,6 @@
-from django.contrib import admin
-from django.urls import path, include
-from reviews.views import home
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("", home, name="home"),
-    path("", include("reviews.urls")),
+    # Aquí puedes añadir rutas propias de la app reviews si las necesitas
 ]
