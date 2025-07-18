@@ -1,26 +1,35 @@
-## ESTRUCTURA DEL PROYECTO ##
+## ESTRUCTURA DEL PROYECTO
+
+```
 ex-advisor/
-├── manage.py
-├── requirements.txt (opcional)
-├── exadvisor/           ← solo configuración del proyecto
+├── exadvisor/               ← solo configuración del proyecto
 │   ├── __init__.py
+│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
-│   ├── asgi.py
 │   └── wsgi.py
-├── templates/           ← HTML base (home, login, etc.)
+├── reviews/                ← app para la lógica de reseñas
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+├── templates/              ← HTML base (home, login, etc.)
 │   ├── home.html
 │   └── login.html
-├── users/               ← app nueva para login/registro/logout
-│   ├── views.py
+├── users/                  ← app para login/registro/logout
+│   ├── __init__.py
 │   ├── forms.py
 │   ├── urls.py
-│   └── ...
-├── reviews/             ← app para la lógica de reseñas
-│   ├── views.py
-│   ├── models.py
-│   ├── urls.py
-│   └── ...
+│   └── views.py
+├── .gitignore
+├── autosave.sh
+├── manage.py
+├── README.md
+└── requirements.txt
+```
 
 
 ## Guardado automático del repositorio: 
