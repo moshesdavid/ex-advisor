@@ -31,7 +31,6 @@ ex-advisor/
 └── requirements.txt
 ```
 
-
 ## Guardado automático del repositorio: 
 cd /workspaces/ex-advisor
 source venv/bin/activate
