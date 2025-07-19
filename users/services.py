@@ -13,4 +13,7 @@ def create_user(username=str, password=str):
     User.objects.create_user(username=username, password=password)
 
     # Avisamos de que se ha creado correctamente
-    print(f"Usuario {}")
+    print(f"Usuario {username} creado correctamente")
+
+
+
