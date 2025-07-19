@@ -1,7 +1,10 @@
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from datetime import date
+from users.models import Pareja
 
 def users_list(show: bool = False) -> list[str]:
+
     lista_usuarios = [user.username for user in User.objects.all()]     
     if show==True:
         print(f"Lista usuarios actual: {lista_usuarios}")
@@ -21,6 +24,7 @@ def check_user_exist(username):
         return False
 
 def create_user(username=str, password=str, email=str):
+
     # Comrpueba si existe el usuario
     user_exist = check_user_exist(username)
 
@@ -45,6 +49,20 @@ def user_info(username:str, show:bool = False):
         print(f"Password: {user.password}")    
     return user
 
+def crear_pareja(
+        username1: str, 
+        username2: str, 
+        fecha_inicio: date = date.today(), 
+        fecha_fin: date = None):
+    
+    Pareja.objects.create(
+        miembro_1 = User.objects.get(username=username1),
+        miembro_2 = User.objects.get(username=username2),
+        fecha_inicio=fecha_inicio,
+        fecha_fin=fecha_fin
+    )
+
+    print(f"Pareja creada con éxito entre {username1} y {username2}")
 
 
 
