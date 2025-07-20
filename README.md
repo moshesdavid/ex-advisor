@@ -47,3 +47,6 @@ sqlite3 db.sqlite3
 ### castear cómo aparece la info
 .headers on
 .mode column
+
+
+
