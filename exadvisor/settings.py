@@ -54,7 +54,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = "exadvisor.urls"
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/login/'
 
 TEMPLATES = [
     {
