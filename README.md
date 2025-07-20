@@ -36,3 +36,14 @@ cd /workspaces/ex-advisor
 source venv/bin/activate
 ./autosave.sh &
 
+## SQLite tips
+
+### abrir el sqlite
+sqlite3 db.sqlite3
+
+### revisar las tablas existentes
+.tables
+
+### castear cómo aparece la info
+.headers on
+.mode column
