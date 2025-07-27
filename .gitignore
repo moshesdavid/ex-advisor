@@ -12,7 +12,7 @@ __pycache__/
 *.pyo
 
 # Archivos de base de datos
-*.sqlite3
+# *.sqlite3 -> esto hay que quitarlo en producción
 
 # Archivos de logs
 *.log
