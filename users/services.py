@@ -58,20 +58,40 @@ def user_info(username: str, show: bool = False):
         print(f"Password: {user.password}")
     return user
 
-
 def crear_pareja(
     username1: str,  
     username2: str,
+    solicitante: str,
     fecha_inicio: date = date.today(),
     fecha_fin: date = None
 ):
+    # Revisar que los usuarios existen
+    if not check_user_exist(username1):
+        print(f"El usuario {username1} no existe")
+        return
+    if not check_user_exist(username2):
+        print(f"El usuario {username2} no existe")
+        return
+
+    # Verificar que el solicitante es uno de los 2 usuarios a relacionar
+    if solicitante not in [username1, username2]:
+        print(f"El solicitante debe ser uno de los dos usuarios a relacionar")
+        return
+    
+    # Revisar que no se ha registrado ya una relación entre los usuarios para esas fechas
+    # TODO: pendiente de contar con la tabla de parejas para poder comprobar esto
+
+    # Generamos el objeto pareja
     Pareja.objects.create(
         miembro_1=User.objects.get(username=username1),
         miembro_2=User.objects.get(username=username2),
         fecha_inicio=fecha_inicio,
-        fecha_fin=fecha_fin
+        fecha_fin=fecha_fin,
+        solicitante=User.objects.get(username=solicitante)
     )
-    print(f"Pareja creada con éxito entre {username1} y {username2}")
+    
+    print(f"Pareja creada con éxito entre {username1} y {username2} desde {fecha_inicio} hasta {fecha_fin} solicitado por {solicitante}")
+
 
 
 
